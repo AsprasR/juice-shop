@@ -131,7 +131,7 @@ module.exports.status = function status () {
     const token = req.cookies.token || utils.jwtFrom(req)
     if (token) {
       const user = await new Promise((resolve, reject) => {
-        jwt.verify(token, insecurity.publicKey, (err, decoded) => {
+        jwt.verify(token, insecurity.publicKey, { algorithms: ["RS256"] }, (err, decoded) => {
           if (err !== null) {
             res.status(401).json({
               error: 'Unauthenticated user'

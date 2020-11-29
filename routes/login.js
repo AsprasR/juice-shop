@@ -9,6 +9,7 @@ const models = require('../models/index')
 const challenges = require('../data/datacache').challenges
 const users = require('../data/datacache').users
 const config = require('config')
+const { QueryTypes } = require('sequelize')
 
 module.exports = function login () {
   function afterLogin (user, res, next) {
@@ -26,7 +27,16 @@ module.exports = function login () {
 
   return (req, res, next) => {
     verifyPreLoginChallenges(req)
-    models.sequelize.query(`SELECT * FROM Users WHERE email = '${req.body.email || ''}' AND password = '${insecurity.hash(req.body.password || '')}' AND deletedAt IS NULL`, { model: models.User, plain: true })
+    models.sequelize.query(`SELECT * FROM Users WHERE email = :username AND password = :password AND deletedAt IS NULL`, 
+    { 
+      model: models.User, 
+      plain: true,
+      replacements: {
+        username: req.body.email || '',
+        password: insecurity.hash(req.body.password || '')
+      },
+      type: QueryTypes.SELECT
+    })
       .then((authenticatedUser) => {
         let user = utils.queryResultToJson(authenticatedUser)
         const rememberedEmail = insecurity.userEmailFrom(req)
@@ -41,7 +51,7 @@ module.exports = function login () {
             status: 'totp_token_required',
             data: {
               tmpToken: insecurity.authorize({
-                userId: user.data.id,
+                userId: Number(user.data.id),
                 type: 'password_valid_needs_second_factor_token'
               })
             }
