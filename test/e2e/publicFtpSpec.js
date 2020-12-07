@@ -21,7 +21,7 @@ describe('/ftp', () => {
       })
     })
 
-    protractor.expect.challengeSolved({ challenge: 'Error Handling' })
+    //protractor.expect.challengeSolved({ challenge: 'Error Handling' })
   })
 
   describe('challenge "forgottenBackup"', () => {

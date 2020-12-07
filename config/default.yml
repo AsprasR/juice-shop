@@ -32,7 +32,7 @@ application:
     bottomProductImage: apple_pressings.jpg
   welcomeBanner:
     showOnFirstStart: true
-    title: 'Welcome to OWASP Juice Shop!'
+    title: 'Welcome to Juice Shop!'
     message: "<p>Being a web application with a vast number of intended security vulnerabilities, the <strong>OWASP Juice Shop</strong> is supposed to be the opposite of a best practice or template application for web developers: It is an awareness, training, demonstration and exercise tool for security risks in modern web applications. The <strong>OWASP Juice Shop</strong> is an open-source project hosted by the non-profit <a href='https://owasp.org' target='_blank'>Open Web Application Security Project (OWASP)</a> and is developed and maintained by volunteers. Check out the link below for more information and documentation on the project.</p><h1><a href='https://owasp-juice.shop' target='_blank'>https://owasp-juice.shop</a></h1>"
   cookieConsent:
     backgroundColor: '#546e7a'
@@ -71,6 +71,7 @@ application:
       - { uri: 'http://127.0.0.1:4200', proxy: 'http://local4200.owasp-juice.shop' }
       - { uri: 'http://192.168.99.100:3000', proxy: 'http://localmac.owasp-juice.shop' }
       - { uri: 'http://penguin.termina.linux.test:3000', proxy: 'http://localchromeos.owasp-juice.shop' }
+      - { uri: 'https://juice-baiim.herokuapp.com' }
 challenges:
   showSolvedNotifications: true
   showHints: true
@@ -320,6 +321,7 @@ products:
       - { text: "Rad, dude!", author: rapper }
       - { text: "Looks spacy on Bones' new tricorder!", author: jim }
       - { text: "Will put one on the Planet Express ship's bumper!", author: bender }
+      - { text: "So yummy!", author: sysAdmin }
   -
     name: 'OWASP Juice Shop "King of the Hill" Facemask'
     description: "Facemask with compartment for filter from 50% cotton and 50% polyester."
@@ -330,6 +332,7 @@ products:
     reviews:
       - { text: "K33p5 y0ur ju1cy 5plu773r 70 y0ur53lf!", author: uvogin }
       - { text: "Puny mask for puny human weaklings!", author: bender }
+      - { text: "The best", author: secret-user }
   -
     name: 'Juice Shop Adversary Trading Card (Common)'
     description: 'Common rarity "Juice Shop" card for the <a href="https://docs.google.com/forms/d/e/1FAIpQLSecLEakawSQ56lBe2JOSbFwFYrKDCIN7Yd3iHFdQc5z8ApwdQ/viewform">Adversary Trading Cards</a> CCG.'

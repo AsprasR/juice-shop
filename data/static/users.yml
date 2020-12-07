@@ -27,6 +27,54 @@
       expMonth: 4
       expYear: 2086      
 -
+  email: sysAdmin
+  password: 'TheVeryDiffcultPasswordToGuess'
+  key: sysAdmin
+  role: 'admin'
+  securityQuestion:
+    id: 1
+    answer: 'BardzoTrudnaOdpowiedz'
+  feedback:
+    comment: '2/10 nie polecam'
+    rating: 1
+  address:
+    - fullName: 'Kazimierz Kowalski'
+      mobileNum: 1234567890
+      zipCode: '11-111'
+      streetAddress: 'Koszykowa 76'
+      city: 'Warsaw'
+      state: 'Mazovian'
+      country: 'Poland'
+  card:
+    - fullName: 'Moja złota karta'
+      cardNum: 2720994865974942
+      expMonth: 3
+      expYear: 2089
+-
+  email: secret-user
+  password: 'dataNotFound'
+  key: secret-user
+  role: 'customer'
+  securityQuestion:
+    id: 2
+    answer: 'WrongData'
+  feedback:
+    comment: 'sprzedam multiple'
+    rating: 5
+  address:
+    - fullName: 'Jan Juice'
+      mobileNum: 1234567891
+      zipCode: '12-22'
+      streetAddress: 'Koszykowa 77'
+      city: 'Warsaw'
+      state: 'Mazovian'
+      country: 'Poland'
+  card:
+    - fullName: 'Moja stara karta'
+      cardNum: 5439841819761807
+      expMonth: 1
+      expYear: 2095
+-
   email: jim
   password: 'ncc-1701'
   key: jim

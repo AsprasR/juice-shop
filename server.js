@@ -226,24 +226,9 @@ const serveIndexMiddleware = (req, res, next) => {
   next()
 }
 
-/* /ftp directory browsing and file download */
-app.use('/ftp', serveIndexMiddleware, serveIndex('ftp', { icons: true }))
-app.use('/ftp(?!/quarantine)/:file', fileServer())
-app.use('/ftp/quarantine/:file', quarantineServer())
+app.use('/ftp/legal.md', express.static(path.join(__dirname, '/ftp/legal.md'), { index: false }))
 
-/* /encryptionkeys directory browsing */
-app.use('/encryptionkeys', serveIndexMiddleware, serveIndex('encryptionkeys', { icons: true, view: 'details' }))
-app.use('/encryptionkeys/:file', keyServer())
-
-/* /logs directory browsing */
-app.use('/support/logs', serveIndexMiddleware, serveIndex('logs', { icons: true, view: 'details' }))
-app.use('/support/logs', verify.accessControlChallenges())
-app.use('/support/logs/:file', logFileServer())
-
-/* Swagger documentation for B2B v2 endpoints */
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-
-app.use(express.static(path.join(__dirname, '/frontend/dist/frontend')))
+app.use(express.static(path.join(__dirname, '/frontend/dist/frontend'), { index: false }))
 app.use(cookieParser('kekse'))
 
 /* Configure and enable backend-side i18n */
